@@ -9,27 +9,27 @@ import {
   ViewStyle,
   StyleSheet,
 } from "react-native";
-import stylex from "@stylexjs/stylex";
 import {
   TextButtonContainerStyledProps,
   TextButtonContentProps,
   TextForTextButtonProps,
 } from "./TextButton.types";
 
-const baseTextStyles = stylex.create({
+// Define styles using StyleSheet.create for better type compatibility
+const baseTextStyles = StyleSheet.create({
   text: {
     color: "black",
   },
 });
 
-const baseContainerStyles = stylex.create({
+const baseContainerStyles = StyleSheet.create({
   container: {
     backgroundColor: "transparent",
     alignSelf: "flex-start",
   },
 });
 
-const baseContentStyles = stylex.create({
+const baseContentStyles = StyleSheet.create({
   content: {
     width: "100%",
     justifyContent: "center",
@@ -38,7 +38,7 @@ const baseContentStyles = stylex.create({
   },
 });
 
-const baseWrapperStyles = stylex.create({
+const baseWrapperStyles = StyleSheet.create({
   wrapper: {
     padding: 10,
   },
@@ -97,8 +97,8 @@ export const TextButtonContainerStyled: React.FC<TextButtonContainerStyledProps>
 };
 
 export const TextButtonContent: React.FC<TextButtonContentProps> = ({
-  flexDirection,
-  backgroundColor = "transparent",
+  flexDirection = "row",
+  backgroundColor,
   children,
   style,
   ...props
@@ -121,25 +121,15 @@ export const TextButtonContent: React.FC<TextButtonContentProps> = ({
   );
 };
 
-export interface IconWrapperProps extends ViewProps {
-  padding?: number;
-}
-
-export const IconWrapper: React.FC<IconWrapperProps> = ({
-  padding = 10,
+export const TextButtonWrapper: React.FC<ViewProps> = ({
   children,
   style,
   ...props
 }) => {
-  const dynamicWrapperStyle: ViewStyle = useMemo(() => ({
-    padding,
-  }), [padding]);
-
   const combinedStyles = useMemo(() => [
     baseWrapperStyles.wrapper,
-    dynamicWrapperStyle,
     style,
-  ], [dynamicWrapperStyle, style]);
+  ], [style]);
 
   return (
     <View style={StyleSheet.flatten(combinedStyles)} {...props}>

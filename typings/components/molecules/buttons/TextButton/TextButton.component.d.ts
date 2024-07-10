@@ -1,6 +1,6 @@
 import React from "react";
 import { TextProps, ViewProps, TextStyle } from "react-native";
-export interface TextButtonInterfaceProps {
+export interface TextButtonProps {
     containerStyle?: ViewProps["style"];
     textStyle?: TextProps["style"];
     backgroundColor?: string;
@@ -15,4 +15,4 @@ export interface TextButtonInterfaceProps {
     disabled?: boolean;
     text: string;
 }
-export declare const TextButton: React.FC<TextButtonInterfaceProps>;
+export declare const TextButton: React.FC<TextButtonProps>;

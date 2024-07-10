@@ -16,7 +16,7 @@ import {
 } from "./TextButton.styles"
 
 // TextButton component implementation
-export interface TextButtonInterfaceProps {
+export interface TextButtonProps {
   containerStyle?: ViewProps["style"]
   textStyle?: TextProps["style"]
   backgroundColor?: string
@@ -32,44 +32,34 @@ export interface TextButtonInterfaceProps {
   text: string
 }
 
-export const TextButton: React.FC<TextButtonInterfaceProps> = ({
-  fontWeight,
-  textTransform,
+export const TextButton: React.FC<TextButtonProps> = ({
   textDecorationLine,
-  maxFontSize,
-  fontSize,
+  textTransform,
   disabled,
+  textColor,
+  fontSize,
+  fontWeight,
+  maxFontSize,
   contentStyle,
   backgroundColor,
-  textColor,
   textStyle,
   text,
   onPress,
   containerStyle,
 }) => {
-  const flexDirection = "row"
-  const iconPadding = 15
-  const textMarginLeftRight = iconPadding - 5
+  const flexDirection = "row";
+  const iconPadding = 15;
+  const textMarginLeftRight = iconPadding - 5;
 
-  const parentTextStyles: TextStyle = useMemo(
-    () => ({
-      marginLeft: textMarginLeftRight,
-      marginRight: textMarginLeftRight,
-      textDecorationLine: textDecorationLine || "none",
-      textTransform: textTransform || "none",
-      backgroundColor: backgroundColor || undefined,
-      color: textColor || undefined,
-      ...(textStyle as object),
-    }),
-    [
-      textMarginLeftRight,
-      textDecorationLine,
-      textTransform,
-      backgroundColor,
-      textColor,
-      textStyle,
-    ],
-  )
+  const parentTextStyles: TextStyle = useMemo(() => ({
+    marginLeft: textMarginLeftRight,
+    marginRight: textMarginLeftRight,
+    textDecorationLine: textDecorationLine || "none",
+    textTransform: textTransform || "none",
+    backgroundColor: backgroundColor || undefined,
+    color: textColor || undefined,
+    ...(textStyle as object),
+  }), [textMarginLeftRight, textDecorationLine, textTransform, backgroundColor, textColor, textStyle]);
 
   return (
     <TouchableOpacity
@@ -93,5 +83,5 @@ export const TextButton: React.FC<TextButtonInterfaceProps> = ({
         </TextForTextButton>
       </TextButtonContent>
     </TouchableOpacity>
-  )
-}
+  );
+};
