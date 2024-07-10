@@ -1,5 +1,5 @@
 
-![Devlander Higher Order Components Collection Header](https://github.com/Devlander-Software/higher-order-components/raw/main/media/images/react-higher-order-components-github-cover.png)
+![Devlander Higher Order Components Collection Header](https://github.com/Devlander-Software/higher-order-components/raw/main/media/images/react-high-order-components-github-cover.png)
 
 <a href="https://twitter.com/intent/tweet?button_hashtag=DevlanderHigherOrderComponents" target="_parent">
   <img alt="#DevlanderHigherOrderComponents" src="https://img.shields.io/twitter/url?color=%2308a0e9&label=DevlanderHigherOrderComponents&style=social&url=https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fbutton_hashtag%DevlanderHigherOrderComponents">
