@@ -1,10 +1,10 @@
-import React, { FC, useMemo } from "react"
-import { View, ViewProps, StyleSheet, StyleProp, ViewStyle } from "react-native"
+import type { FC } from "react"
+import React, { useMemo } from "react"
+import type { ViewProps, StyleProp, ViewStyle } from "react-native"
+import { View, StyleSheet } from "react-native"
 import stylex from "@stylexjs/stylex"
 import { useScreenDimensions } from "@devlander/hooks"
-
-// Determine if running on web or React Native
-const isWeb = typeof document !== "undefined"
+import PropTypes from "prop-types"
 
 // Create a unified type for styles
 type UnifiedStyle = StyleProp<ViewStyle> | any
@@ -62,3 +62,15 @@ export const LoadingBackdropContainer: FC<SubmittingScreenInterface> =
       </View>
     )
   })
+
+// Add display name for better debugging
+LoadingBackdropContainer.displayName = "LoadingBackdropContainer"
+
+// Add prop-types validation for ESLint
+LoadingBackdropContainer.propTypes = {
+  submitting: PropTypes.bool,
+  children: PropTypes.node,
+  style: PropTypes.any, // This can be more specific if needed
+}
+
+export default LoadingBackdropContainer

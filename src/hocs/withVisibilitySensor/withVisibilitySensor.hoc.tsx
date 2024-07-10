@@ -1,5 +1,6 @@
 import { useVisibilitySensor } from "@devlander/hooks"
-import React, { forwardRef, useState, ComponentType, Ref } from "react"
+import type { ComponentType, Ref } from "react"
+import React, { forwardRef, useState } from "react"
 import { View, Platform } from "react-native"
 
 const isWeb = Platform.OS === "web"

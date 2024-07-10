@@ -1,5 +1,5 @@
 import React from "react";
-import { TextProps } from "react-native";
+import type { TextProps } from "react-native";
 export interface PrimaryTextProps extends TextProps {
     textColor?: string;
     onDark?: boolean;

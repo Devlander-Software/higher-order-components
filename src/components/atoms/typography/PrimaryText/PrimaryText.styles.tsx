@@ -1,12 +1,6 @@
 import React, { useMemo } from "react"
-import {
-  Text,
-  TextProps,
-  StyleSheet,
-  StyleProp,
-  TextStyle,
-  ViewStyle,
-} from "react-native"
+import type { TextProps, StyleProp, TextStyle, ViewStyle } from "react-native"
+import { Text, StyleSheet } from "react-native"
 import stylex from "@stylexjs/stylex"
 
 export interface PrimaryTextProps extends TextProps {

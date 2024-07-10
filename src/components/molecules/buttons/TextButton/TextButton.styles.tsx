@@ -1,48 +1,31 @@
-import React, { useMemo } from "react";
-import {
-  Text,
-  TouchableOpacity,
-  View,
-  TextProps,
-  ViewProps,
-  TextStyle,
-  ViewStyle,
-  StyleSheet,
-} from "react-native";
-import stylex from "@stylexjs/stylex";
-import {
+import React, { useMemo } from "react"
+import type { ViewProps, TextStyle, ViewStyle } from "react-native"
+import { Text, TouchableOpacity, View, TextProps } from "react-native"
+import * as stylex from "@stylexjs/stylex"
+import type {
   TextButtonContainerStyledProps,
   TextButtonContentProps,
   TextForTextButtonProps,
-} from "./TextButton.types";
+} from "./TextButton.types"
 
-const baseTextStyles = stylex.create({
-  text: {
+const styles = stylex.create({
+  baseText: {
     color: "black",
   },
-});
-
-const baseContainerStyles = stylex.create({
-  container: {
+  baseContainer: {
     backgroundColor: "transparent",
     alignSelf: "flex-start",
   },
-});
-
-const baseContentStyles = stylex.create({
-  content: {
+  baseContent: {
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
     display: "flex",
   },
-});
-
-const baseWrapperStyles = stylex.create({
-  wrapper: {
+  baseWrapper: {
     padding: 10,
   },
-});
+})
 
 export const TextForTextButton: React.FC<TextForTextButtonProps> = ({
   color = "black",
@@ -52,98 +35,88 @@ export const TextForTextButton: React.FC<TextForTextButtonProps> = ({
   style,
   ...props
 }) => {
-  const dynamicTextStyle: TextStyle = useMemo(() => ({
-    fontSize,
-    maxFontSize,
-    color,
-  }), [fontSize, maxFontSize, color]);
-
-  const combinedStyles = useMemo(() => [
-    baseTextStyles.text,
-    dynamicTextStyle,
-    style,
-  ], [dynamicTextStyle, style]);
+  const dynamicTextStyle: TextStyle = useMemo(
+    () => ({
+      fontSize,
+      maxFontSize,
+      color,
+    }),
+    [fontSize, maxFontSize, color],
+  )
 
   return (
-    <Text style={StyleSheet.flatten(combinedStyles)} {...props}>
+    <Text
+      {...stylex.props(styles.baseText)}
+      style={[dynamicTextStyle, style]}
+      {...props}
+    >
       {children}
     </Text>
-  );
-};
+  )
+}
 
-export const TextButtonContainerStyled: React.FC<TextButtonContainerStyledProps> = ({
+export const TextButtonContainerStyled: React.FC<
+  TextButtonContainerStyledProps
+> = ({
   backgroundColor = "transparent",
   alignSelf = "flex-start",
   children,
   style,
   ...props
 }) => {
-  const dynamicContainerStyle: ViewStyle = useMemo(() => ({
-    backgroundColor,
-    alignSelf,
-  }), [backgroundColor, alignSelf]);
-
-  const combinedStyles = useMemo(() => [
-    baseContainerStyles.container,
-    dynamicContainerStyle,
-    style,
-  ], [dynamicContainerStyle, style]);
+  const dynamicContainerStyle: ViewStyle = useMemo(
+    () => ({
+      backgroundColor,
+      alignSelf,
+    }),
+    [backgroundColor, alignSelf],
+  )
 
   return (
-    <TouchableOpacity style={StyleSheet.flatten(combinedStyles)} {...props}>
+    <TouchableOpacity
+      {...stylex.props(styles.baseContainer)}
+      style={[dynamicContainerStyle, style]}
+      {...props}
+    >
       {children}
     </TouchableOpacity>
-  );
-};
-
-export const TextButtonContent: React.FC<TextButtonContentProps> = ({
-  flexDirection,
-  backgroundColor = "transparent",
-  children,
-  style,
-  ...props
-}) => {
-  const dynamicContentStyle: ViewStyle = useMemo(() => ({
-    flexDirection,
-    backgroundColor,
-  }), [flexDirection, backgroundColor]);
-
-  const combinedStyles = useMemo(() => [
-    baseContentStyles.content,
-    dynamicContentStyle,
-    style,
-  ], [dynamicContentStyle, style]);
-
-  return (
-    <View style={StyleSheet.flatten(combinedStyles)} {...props}>
-      {children}
-    </View>
-  );
-};
-
-export interface IconWrapperProps extends ViewProps {
-  padding?: number;
+  )
 }
 
-export const IconWrapper: React.FC<IconWrapperProps> = ({
-  padding = 10,
+export const TextButtonContent: React.FC<TextButtonContentProps> = ({
+  flexDirection = "row",
+  backgroundColor,
   children,
   style,
   ...props
 }) => {
-  const dynamicWrapperStyle: ViewStyle = useMemo(() => ({
-    padding,
-  }), [padding]);
-
-  const combinedStyles = useMemo(() => [
-    baseWrapperStyles.wrapper,
-    dynamicWrapperStyle,
-    style,
-  ], [dynamicWrapperStyle, style]);
+  const dynamicContentStyle: ViewStyle = useMemo(
+    () => ({
+      flexDirection,
+      backgroundColor,
+    }),
+    [flexDirection, backgroundColor],
+  )
 
   return (
-    <View style={StyleSheet.flatten(combinedStyles)} {...props}>
+    <View
+      {...stylex.props(styles.baseContent)}
+      style={[dynamicContentStyle, style]}
+      {...props}
+    >
       {children}
     </View>
-  );
-};
+  )
+}
+
+export const TextButtonWrapper: React.FC<ViewProps> = ({
+  children,
+  style,
+  ...props
+}) => {
+  return (
+    <View {...stylex.props(styles.baseWrapper)} style={style} {...props}>
+      {children}
+    </View>
+  )
+}

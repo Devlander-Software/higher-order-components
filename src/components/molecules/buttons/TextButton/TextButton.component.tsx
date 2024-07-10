@@ -1,14 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from "react"
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  TextProps,
-  ViewProps,
-  TextStyle,
-  ViewStyle,
-} from "react-native"
+import type { TextProps, ViewProps, TextStyle } from "react-native"
 import {
   TextButtonContainerStyled,
   TextButtonContent,
@@ -16,7 +8,7 @@ import {
 } from "./TextButton.styles"
 
 // TextButton component implementation
-export interface TextButtonInterfaceProps {
+export interface TextButtonProps {
   containerStyle?: ViewProps["style"]
   textStyle?: TextProps["style"]
   backgroundColor?: string
@@ -32,16 +24,16 @@ export interface TextButtonInterfaceProps {
   text: string
 }
 
-export const TextButton: React.FC<TextButtonInterfaceProps> = ({
-  fontWeight,
-  textTransform,
+export const TextButton: React.FC<TextButtonProps> = ({
   textDecorationLine,
-  maxFontSize,
-  fontSize,
+  textTransform,
   disabled,
+  textColor,
+  fontSize,
+  fontWeight,
+  maxFontSize,
   contentStyle,
   backgroundColor,
-  textColor,
   textStyle,
   text,
   onPress,
@@ -72,7 +64,7 @@ export const TextButton: React.FC<TextButtonInterfaceProps> = ({
   )
 
   return (
-    <TouchableOpacity
+    <TextButtonContainerStyled
       style={containerStyle}
       onPress={onPress}
       disabled={disabled}
@@ -92,6 +84,6 @@ export const TextButton: React.FC<TextButtonInterfaceProps> = ({
           {text}
         </TextForTextButton>
       </TextButtonContent>
-    </TouchableOpacity>
+    </TextButtonContainerStyled>
   )
 }

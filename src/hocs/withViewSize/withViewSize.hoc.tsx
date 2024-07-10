@@ -1,6 +1,8 @@
 import { useViewSize } from "@devlander/hooks"
-import { forwardRef, ComponentType } from "react"
-import { View, LayoutRectangle } from "react-native"
+import type { ComponentType } from "react"
+import { forwardRef } from "react"
+import type { LayoutRectangle } from "react-native"
+import { View } from "react-native"
 
 export function withViewSize<P>(
   WrappedComponent: ComponentType<P & { size: LayoutRectangle }>,
