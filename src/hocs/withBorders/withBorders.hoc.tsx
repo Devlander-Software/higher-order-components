@@ -1,6 +1,6 @@
 import { View } from "react-native"
 import type { WithBordersProps } from "../../types/with-borders.type"
-import React from 'react'
+import React from "react"
 /**
  * Higher Order Component that adds borders to a wrapped component if the withBorders prop is true.
  *
