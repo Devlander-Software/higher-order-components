@@ -1,10 +1,8 @@
 import React, { useMemo } from "react"
-import { TextStyle, TextProps } from "react-native"
+import type { TextStyle } from "react-native"
 import { BaseTextStyled } from "./BaseText.styles"
 import { useGetMediaQueryInfo } from "@devlander/hooks"
-import {
-  FontProperty,
-  FontTypeEnum,
+import type {
   TextStylePropsNative,
   UITextStylingAttributes,
 } from "@devlander/styled-components-theme"
@@ -23,20 +21,18 @@ export interface BaseTextProps extends Partial<UITextStylingAttributes<any>> {
   ellipsizeMode?: "head" | "middle" | "tail" | "clip" | undefined
 }
 
-export const BaseText: React.FC<BaseTextProps> = (props: BaseTextProps) => {
-  const {
-    textStyleFromTheme = {},
-    numberOfLines = 1,
-    adjustsFontSizeToFit = false,
-    ellipsizeMode = "tail",
-    children = "",
-    maxFontSize = 13,
-    fontSize: fontSizeFromProps,
-    textStyle = {},
-    textTransform,
-    disabled,
-  } = props
-
+export const BaseText: React.FC<BaseTextProps> = ({
+  textStyleFromTheme = {},
+  numberOfLines = 1,
+  adjustsFontSizeToFit = false,
+  ellipsizeMode = "tail",
+  children = "",
+  maxFontSize = 13,
+  fontSize: fontSizeFromProps,
+  textStyle = {},
+  textTransform,
+  disabled,
+}: BaseTextProps) => {
   const fontSize = useMemo(
     () =>
       textStyleFromTheme && textStyleFromTheme.fontSize
@@ -64,12 +60,13 @@ export const BaseText: React.FC<BaseTextProps> = (props: BaseTextProps) => {
     [isTablet, fontSize, maxFontSize],
   )
 
-  const styleForText: TextStyle = useMemo(() => {
-    return {
+  const styleForText: TextStyle = useMemo(
+    () => ({
       fontSize: fontSize,
       ...textStyle,
-    }
-  }, [textStyle, fontSize])
+    }),
+    [textStyle, fontSize],
+  )
 
   return (
     <BaseTextStyled
@@ -88,13 +85,3 @@ export const BaseText: React.FC<BaseTextProps> = (props: BaseTextProps) => {
     </BaseTextStyled>
   )
 }
-
-const DefaultPropsForBaseText: BaseTextProps = {
-  textStyle: {
-    fontSize: 13,
-  },
-  adjustsFontSizeToFit: false,
-  maxFontSize: 13,
-}
-
-BaseText.defaultProps = DefaultPropsForBaseText

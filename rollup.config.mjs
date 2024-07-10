@@ -6,23 +6,35 @@ import typescript from "@rollup/plugin-typescript";
 import fs from "fs";
 import { terser } from "rollup-plugin-terser";
 import stylex from "@stylexjs/rollup-plugin";
+import dts from 'rollup-plugin-dts';
+import styleXPlugin from "@stylexjs/babel-plugin";
+import path from "path";
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
 
 const extensions = [".js", ".jsx", ".ts", ".tsx", ".native.js"];
+const treeshake = {
+  moduleSideEffects: false,
+  propertyReadSideEffects: false,
+  tryCatchDeoptimization: false,
+};
 
-// Exclude certain dependencies from being bundled
 const external = [
   "react",
   "react-dom",
-  "react-native-web", // Add more peer dependencies here
+  "stylex",
+  "react-native-web",
   "react-native"
 ];
 
 const globals = {
   react: "React",
-  "react-native": "reactNative",
-  "react-native-web": "reactNativeWeb"
+  "react-dom": "ReactDOM",
+  "react-native": "ReactNative",
+  "react-native-web": "ReactNativeWeb",
 };
 
 const makeExternalPredicate = externalArr => {
@@ -32,7 +44,6 @@ const makeExternalPredicate = externalArr => {
   const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`);
   return id => pattern.test(id);
 };
-
 export default {
   input: "src/index.tsx", // Your entry point
   output: [
@@ -43,6 +54,7 @@ export default {
       globals: globals,
       sourcemap: true,
     },
+  
     {
       file: packageJson.module,
       format: "esm",
@@ -69,10 +81,17 @@ export default {
         "@babel/preset-react",
         "@babel/preset-typescript",
       ],
+     
     }),
     typescript(),
     json(),
     terser(), // Use terser for minification
     stylex(), // Add stylex plugin
+    {
+      treeshake,
+      input: packageJson.types,
+      output: [{ file: 'dist/index.d.ts', format: 'esm' }],
+      plugins: [dts()],
+    },
   ],
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { TextProps, ViewProps, TextStyle } from "react-native";
+import type { TextProps, ViewProps, TextStyle } from "react-native";
 export interface TextButtonProps {
     containerStyle?: ViewProps["style"];
     textStyle?: TextProps["style"];

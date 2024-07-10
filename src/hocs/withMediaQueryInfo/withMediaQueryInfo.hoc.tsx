@@ -5,10 +5,8 @@
  * @param {ComponentType<TProps & WithMediaQueryProps>} Component - The component to be wrapped.
  * @returns {React.FC<TProps>} - The wrapped component.
  */
-import {
-  MediaQueryBreakpointConfig,
-  useGetMediaQueryInfo,
-} from "@devlander/hooks"
+import type { MediaQueryBreakpointConfig } from "@devlander/hooks"
+import { useGetMediaQueryInfo } from "@devlander/hooks"
 import type { ComponentType } from "react"
 import React from "react"
 

@@ -1,5 +1,6 @@
 import React from "react"
-import { Text, TextProps, StyleSheet, StyleProp, TextStyle } from "react-native"
+import type { TextProps, StyleProp, TextStyle } from "react-native"
+import { Text, StyleSheet } from "react-native"
 import stylex from "@stylexjs/stylex"
 
 export interface BaseTextStyledInterface extends TextProps {

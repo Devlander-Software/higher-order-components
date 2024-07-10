@@ -1,5 +1,5 @@
 import React from "react";
-import { TextStylePropsNative, UITextStylingAttributes } from "@devlander/styled-components-theme";
+import type { TextStylePropsNative, UITextStylingAttributes } from "@devlander/styled-components-theme";
 export interface BaseTextProps extends Partial<UITextStylingAttributes<any>> {
     children?: JSX.Element | JSX.Element[] | string | any;
     fontSize?: number;

@@ -1,14 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from "react"
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  TextProps,
-  ViewProps,
-  TextStyle,
-  ViewStyle,
-} from "react-native"
+import type { TextProps, ViewProps, TextStyle } from "react-native"
 import {
   TextButtonContainerStyled,
   TextButtonContent,
@@ -47,22 +39,32 @@ export const TextButton: React.FC<TextButtonProps> = ({
   onPress,
   containerStyle,
 }) => {
-  const flexDirection = "row";
-  const iconPadding = 15;
-  const textMarginLeftRight = iconPadding - 5;
+  const flexDirection = "row"
+  const iconPadding = 15
+  const textMarginLeftRight = iconPadding - 5
 
-  const parentTextStyles: TextStyle = useMemo(() => ({
-    marginLeft: textMarginLeftRight,
-    marginRight: textMarginLeftRight,
-    textDecorationLine: textDecorationLine || "none",
-    textTransform: textTransform || "none",
-    backgroundColor: backgroundColor || undefined,
-    color: textColor || undefined,
-    ...(textStyle as object),
-  }), [textMarginLeftRight, textDecorationLine, textTransform, backgroundColor, textColor, textStyle]);
+  const parentTextStyles: TextStyle = useMemo(
+    () => ({
+      marginLeft: textMarginLeftRight,
+      marginRight: textMarginLeftRight,
+      textDecorationLine: textDecorationLine || "none",
+      textTransform: textTransform || "none",
+      backgroundColor: backgroundColor || undefined,
+      color: textColor || undefined,
+      ...(textStyle as object),
+    }),
+    [
+      textMarginLeftRight,
+      textDecorationLine,
+      textTransform,
+      backgroundColor,
+      textColor,
+      textStyle,
+    ],
+  )
 
   return (
-    <TouchableOpacity
+    <TextButtonContainerStyled
       style={containerStyle}
       onPress={onPress}
       disabled={disabled}
@@ -82,6 +84,6 @@ export const TextButton: React.FC<TextButtonProps> = ({
           {text}
         </TextForTextButton>
       </TextButtonContent>
-    </TouchableOpacity>
-  );
-};
+    </TextButtonContainerStyled>
+  )
+}

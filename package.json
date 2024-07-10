@@ -1,9 +1,9 @@
 {
   "name": "@devlander/higher-order-components",
-  "version": "0.0.204",
+  "version": "0.0.1",
   "description": "Higher order components used in projects",
-  "main": "dist/umd/index.js",
-  "browser": "dist/umd/index.js",
+  "main": "dist/ums/index.js",
+  "module": "dist/esm/index.js",
   "types": "typings/index.d.ts",
   "type": "commonjs",
   "scripts": {
@@ -26,33 +26,37 @@
     "type": "git",
     "url": "git+https://github.com/Devlander-Software/higher-order-components.git"
   },
+  "license": "Proprietary",
+
   "keywords": [
     "react",
     "react-native",
     "typescript",
     "higher-order-components",
-    "devlander"
-  ],
+    "devlander",
+    "landon johnson"
+  ], 
   "author": "Landon W Johnson",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Devlander-Software/higher-order-components/issues"
   },
   "homepage": "https://github.com/Devlander-Software/higher-order-components#readme",
-  "module": "dist/esm/index.js",
   "files": [
     "dist",
     "typings"
   ],
   "peerDependenciesMeta": {
     "react": {
-      "optional": true
+      "optional": false
     },
     "react-dom": {
-      "optional": true
+      "optional": false
+    },
+    "react-native": {
+      "optional": false
     },
     "react-native-web": {
-      "optional": true
+      "optional": false
     }
   },
   "devDependencies": {
@@ -129,6 +133,7 @@
     "@devlander/styled-components-theme": "^1.1.252",
     "@devlander/utils": "^0.0.49",
     "@stylexjs/stylex": "^0.7.5",
-    "jsdom-global": "^3.0.2"
+    "jsdom-global": "^3.0.2",
+    "react-test-renderer": "^18.3.1"
   }
 }

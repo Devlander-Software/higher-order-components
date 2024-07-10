@@ -1,7 +1,6 @@
 import type { ComponentType } from "react"
-import React from "react"
 import { View } from "react-native"
-import { WithBordersProps } from "../../types/with-borders.type"
+import type { WithBordersProps } from "../../types/with-borders.type"
 
 /**
  * Higher Order Component that adds borders to a wrapped component if the withBorders prop is true.
@@ -12,7 +11,7 @@ import { WithBordersProps } from "../../types/with-borders.type"
 export const withBorders = <P extends object>(
   WrappedComponent: ComponentType<P>,
 ) => {
-  return (props: P & WithBordersProps) => {
+  const ComponentWithBorders = (props: P & WithBordersProps) => {
     const { withBorders = false, borderColor = "red", ...otherProps } = props
 
     if (withBorders) {
@@ -31,4 +30,9 @@ export const withBorders = <P extends object>(
 
     return <WrappedComponent {...(otherProps as P)} />
   }
+
+  // Set a display name for the wrapped component
+  ComponentWithBorders.displayName = `withBorders(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`
+
+  return ComponentWithBorders
 }
