@@ -207,7 +207,7 @@ Contributions are welcome! Please read our [contributing guidelines](https://git
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/Devlander-Software/high-order-components/blob/main/LICENSE) file for details.
+This project is licensed under the Apache License - see the [LICENSE](https://github.com/Devlander-Software/high-order-components/blob/main/LICENSE) file for details.
 
 ## Connect with Us
 
