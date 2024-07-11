@@ -43,6 +43,10 @@ export * from "./components/organisms/LoadingIndicatorOnBackdrop/LoadingIndicato
  */
 export * from "./hocs/withBorders/withBorders.hoc";
 /**
+ * TSDoc for withDefaultProps.hoc
+ */
+export * from "./hocs/withDefaultProps/withDefaultProps.hoc";
+/**
  * TSDoc for withDimensions.hoc
  */
 export * from "./hocs/withDimensions/withDimensions.hoc";
@@ -82,3 +86,7 @@ export * from "./types/with-borders.type";
  * TSDoc for with-data.type
  */
 export * from "./types/with-data.type";
+/**
+ * TSDoc for getDisplayName.util
+ */
+export * from "./utils/getDisplayName.util";

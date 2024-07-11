@@ -1,7 +1,7 @@
 
 {
   "name": "@devlander/higher-order-components",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "description": "A comprehensive collection of higher-order components for React and React Native projects, enhancing functionality and development efficiency.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",

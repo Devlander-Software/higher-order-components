@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import type { ComponentType } from "react";
 /**
  * Helper function to get the display name of a component
  * @param WrappedComponent - The component to get the display name of

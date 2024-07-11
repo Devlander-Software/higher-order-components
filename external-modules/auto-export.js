@@ -12,6 +12,7 @@ const main = () => {
       ".hoc.tsx",
       ".component.tsx",
       ".styles.tsx",
+      '.util.tsx',
       ".types.tsx",
       '.type.ts',
       ".types.ts",
@@ -21,7 +22,8 @@ const main = () => {
     allowedExtensions: [
       ".ts",
       '.type.ts',
-
+      '.util.ts',
+      '.util.tsx',
       ".tsx",
       ".tsx",
       ".hoc.tsx",
