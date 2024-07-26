@@ -1123,6 +1123,13 @@
     ts-node "^10.9.1"
     typescript "^5.2.2"
 
+"@devlander/colors@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@devlander/colors/-/colors-0.0.4.tgz#78d6d18aa3c27f926d2cc7a80d90bfe03ebab05f"
+  integrity sha512-/x+DEg/qPTbhgffhgnmHIfw+xD4lWCkIRxJK4s/U98GbVph3hueGM402CoZmj77S5/C0ClTOZ8ppkW0gywUsrg==
+  dependencies:
+    "@devlander/utils" "^0.0.66"
+
 "@devlander/hooks@^0.0.204":
   version "0.0.204"
   resolved "https://registry.yarnpkg.com/@devlander/hooks/-/hooks-0.0.204.tgz#e56370a8653273d7863d9819bbd01e78da247b98"
@@ -1131,24 +1138,24 @@
     "@devlander/utils" "^0.0.49"
     jsdom-global "^3.0.2"
 
-"@devlander/styled-components-theme@^1.1.252":
-  version "1.1.252"
-  resolved "https://registry.yarnpkg.com/@devlander/styled-components-theme/-/styled-components-theme-1.1.252.tgz#7979c7f27444fe87dd220506a00d302378ac7234"
-  integrity sha512-BXT5ayjmTkcym/A7zsqAH1Qw4r87OhrPEsLfBOMvPen6mgDo6wswMUk+3x5B+EM4NcwYajr5CG5U0DVcWUsIpg==
+"@devlander/styled-components-theme@^1.1.254":
+  version "1.1.254"
+  resolved "https://registry.yarnpkg.com/@devlander/styled-components-theme/-/styled-components-theme-1.1.254.tgz#a83d3455858caa8f574370bef4e251f56013fd1d"
+  integrity sha512-AUSDYx/oOmk8Bl8lepx5hpYnfvugrfQgYLy6sQKkJy6JMzACgyscAxOYj9KIIt4b2RFXlFueNFHavK1f8wnVbA==
   dependencies:
-    "@devlander/utils" "^0.0.28"
+    "@devlander/colors" "^0.0.4"
+    "@devlander/utils" "^0.0.66"
     color "4.2.3"
-    hex-to-rgba "2.0.1"
-
-"@devlander/utils@^0.0.28":
-  version "0.0.28"
-  resolved "https://registry.yarnpkg.com/@devlander/utils/-/utils-0.0.28.tgz#632d7981175769d5309daf1c30dbea4901671252"
-  integrity sha512-G54b44tSRUmHiAjfloIRsicw6OFbNJ9npSXszdusyIzzgMdOxe5g3XMVVh0tIt6F/OoRJEe3j3820RMSe/kDHQ==
 
 "@devlander/utils@^0.0.49":
   version "0.0.49"
   resolved "https://registry.yarnpkg.com/@devlander/utils/-/utils-0.0.49.tgz#ea293a1abcca10f56416a2a6acda30935e654caa"
   integrity sha512-7NC3LfYogcetX29bzfCz741xSBagoUdkPgg45Qfd6WLpHj2ngvBpIAQQSiwrcCBYeeHZPVeNf8IMbS4XTtH8eg==
+
+"@devlander/utils@^0.0.66":
+  version "0.0.66"
+  resolved "https://registry.yarnpkg.com/@devlander/utils/-/utils-0.0.66.tgz#df0b299a5cca036c065479004ab2025642d3a51d"
+  integrity sha512-ZnsoFsEWKJNPzVak3ZiXyVQiMnqldBG3+WU2amyTNRU5M1sGqnYIwZvOfW3L019klOTLPB0CMJT0FHiyr4mm6g==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
@@ -3826,11 +3833,6 @@ hasown@^2.0.0, hasown@^2.0.1, hasown@^2.0.2:
   integrity sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==
   dependencies:
     function-bind "^1.1.2"
-
-hex-to-rgba@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/hex-to-rgba/-/hex-to-rgba-2.0.1.tgz#4176977882a1cb32b83ce5ab1db6828ab84d5a13"
-  integrity sha512-5XqPJBpsEUMsseJUi2w2Hl7cHFFi3+OO10M2pzAvKB1zL6fc+koGMhmBqoDOCB4GemiRM/zvDMRIhVw6EkB8dQ==
 
 hosted-git-info@^2.1.4:
   version "2.8.9"
