@@ -1,7 +1,6 @@
-
 {
   "name": "@devlander/higher-order-components",
-  "version": "0.0.6",
+  "version": "0.0.10",
   "description": "A comprehensive collection of higher-order components for React and React Native projects, enhancing functionality and development efficiency.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
@@ -13,6 +12,7 @@
     "build:index": "node ./external-modules/auto-export.js",
     "build:esm": "tsc",
     "test": "jest",
+    "docs": "typedoc --out ./docs ./src",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
     "lint": "eslint ./src --ext .ts,.tsx --fix && yarn run format && yarn run typecheck",
     "typecheck": "tsc --project tsconfig.json --noEmit --emitDeclarationOnly false",
@@ -36,7 +36,6 @@
     "devlander",
     "landon johnson",
     "hoc",
-    "react hooks",
     "react native components",
     "component library",
     "UI components",
@@ -134,7 +133,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-swc-preserve-directives": "^0.5.0",
     "stylex": "^0.3.0",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "typedoc": "^0.26.5"
   },
   "dependencies": {
     "@devlander/hooks": "^0.0.204",

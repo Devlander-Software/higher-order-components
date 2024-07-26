@@ -37,7 +37,7 @@
     "target": "ESNext"
     
   },
-  "include": ["./src/*.type.ts", "./src/types", "**/*.ts", "**/*.tsx", "src/rollup.config.js", "**/*.web.ts", "**/*.web.tsx", "**/*.native.ts", "**/*.native.tsx", "**/*.hoc.tsx", "**/*.component.tsx", "**/*.styles.tsx"],
+  "include": ["**/*.util.tsx", "**/*.util.ts", "./src/*.type.ts", "./src/types", "**/*.ts", "**/*.tsx", "src/rollup.config.js", "**/*.web.ts", "**/*.web.tsx", "**/*.native.ts", "**/*.native.tsx", "**/*.hoc.tsx", "**/*.component.tsx", "**/*.styles.tsx"],
   "exclude": ["node_modules", "dist", "types", "*/**/.d.ts", "typings"],
 
 }

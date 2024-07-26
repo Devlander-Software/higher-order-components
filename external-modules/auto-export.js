@@ -12,16 +12,18 @@ const main = () => {
       ".hoc.tsx",
       ".component.tsx",
       ".styles.tsx",
+      ".util.tsx",
       ".types.tsx",
-      '.type.ts',
+      ".type.ts",
       ".types.ts",
     ],
 
     rootDir: "./src",
     allowedExtensions: [
       ".ts",
-      '.type.ts',
-
+      ".type.ts",
+      ".util.ts",
+      ".util.tsx",
       ".tsx",
       ".tsx",
       ".hoc.tsx",
