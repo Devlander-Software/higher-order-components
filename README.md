@@ -28,6 +28,9 @@
   <img alt="Wakatime Devlander higher-order-components" src="https://wakatime.com/badge/user/bd50b6c5-e0ca-4937-83b3-ab2d13adbc73/project/018b1ae9-e146-4ac3-88fb-6e3097c4064c.svg" />
 </a> 
 
+[![Hits](https://hits.sh/github.com/Devlander-Software/higher-order-components.svg?label=Hits)](https://hits.sh/github.com/Devlander-Software/higher-order-components/)
+
+
 # Devlander React Native Higher Order Components Collection
 
 ## Introduction
