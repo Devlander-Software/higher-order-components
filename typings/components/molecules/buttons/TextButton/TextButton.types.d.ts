@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import type { TextProps, TextStyle, TouchableOpacityProps, ViewProps } from "react-native";
 export interface TextButtonContentProps extends ViewProps {
     flexDirection: "row" | "column";

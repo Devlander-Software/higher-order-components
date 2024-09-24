@@ -1,39 +1,63 @@
-import { useVisibilitySensor } from "@devlander/hooks"
-import type { ComponentType, Ref } from "react"
-import React, { forwardRef, useState } from "react"
-import { View, Platform } from "react-native"
+import { useVisibilitySensor, VisibilityOffset, UseVisibilityOptionsConfig } from "@devlander/hooks";
+import type { ComponentType, Ref } from "react";
+import React, { forwardRef, useState, useMemo } from "react";
+import { View, Platform } from "react-native";
 
-const isWeb = Platform.OS === "web"
+const isWeb = Platform.OS === "web";
+
+// Default prop values
+const defaultVisibilityOffset = VisibilityOffset.FULL;
+const defaultCheckInterval = 1000;
+const defaultStopWatching = false;
 
 type WithVisibilitySensorProps = {
-  isVisible: boolean
-}
+  isVisible: boolean;
+  visibilityOffset?: VisibilityOffset;
+  checkInterval?: number;
+  stopWatching?: boolean;
+};
 
 export function withVisibilitySensor<P>(
   WrappedComponent: ComponentType<P & WithVisibilitySensorProps>,
 ) {
-  const WithVisibilitySensorComponent = (props: P, ref: Ref<any>) => {
-    const [isVisible, setIsVisible] = useState(false)
-    const visibilitySensorRef = useVisibilitySensor((visible: boolean) => {
-      setIsVisible(visible)
-    })
+  const WithVisibilitySensorComponent = (
+    props: P & WithVisibilitySensorProps,
+    ref: Ref<any>
+  ) => {
+    const [isVisible, setIsVisible] = useState(false);
 
-    const Container = isWeb ? "div" : View
+    // Memoize config options and allow them to update if props change
+    const visibilityConfig: UseVisibilityOptionsConfig = useMemo(() => {
+      return {
+        visibilityOffset: props.visibilityOffset ?? defaultVisibilityOffset,
+        checkInterval: props.checkInterval ?? defaultCheckInterval,
+      };
+    }, [props.visibilityOffset, props.checkInterval]);
+
+    const visibilitySensorRef = useVisibilitySensor(
+      (visible: boolean) => {
+        setIsVisible(visible);
+      },
+      visibilityConfig,
+      props.stopWatching ?? defaultStopWatching
+    );
+
+    const Container = isWeb ? "div" : View;
 
     return (
       <Container ref={visibilitySensorRef as any}>
         <WrappedComponent {...props} ref={ref} isVisible={isVisible} />
       </Container>
-    )
-  }
+    );
+  };
 
   // Forward refs to the WrappedComponent
-  const forwardRefComponent = forwardRef(WithVisibilitySensorComponent)
+  const forwardRefComponent = forwardRef(WithVisibilitySensorComponent);
 
   // Set display name for easier debugging
   const wrappedComponentName =
-    WrappedComponent.displayName || WrappedComponent.name || "Component"
-  forwardRefComponent.displayName = `withVisibilitySensor(${wrappedComponentName})`
+    WrappedComponent.displayName || WrappedComponent.name || "Component";
+  forwardRefComponent.displayName = `withVisibilitySensor(${wrappedComponentName})`;
 
-  return forwardRefComponent
+  return forwardRefComponent;
 }
